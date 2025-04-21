@@ -250,6 +250,44 @@ public class KeyEventExample extends Frame implements KeyListener {
     }
 }
 ```
+OR
+```java
+import java.awt.*;
+import java.awt.event.*;
+
+public class KeyEventExample extends Frame {
+
+    Label label;
+
+    KeyEventExample() {
+        label = new Label("Press any key...", Label.CENTER);
+        label.setBounds(50, 100, 200, 30);
+
+        setTitle("KeyEvent Example");
+        setSize(300, 200);
+        setLayout(null);
+        setVisible(true);
+
+        add(label);
+
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                label.setText("KeyPressed: " + e.getKeyChar());
+            }
+        });
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        new KeyEventExample();
+    }
+}
+```
 
 ### 10. Write a program using URL class to retrieve the host, protocol, port and file of the URL http://www.msbte.org.in.
 ```java
